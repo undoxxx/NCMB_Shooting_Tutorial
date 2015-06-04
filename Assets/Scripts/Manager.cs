@@ -24,18 +24,26 @@ public class Manager : MonoBehaviour
 		if( !IsPlaying() ){
 			drawButton();
 			
+			// ランキングボタンが押されたら
+			if( leaderBoardButton ) {
+				Application.LoadLevel("LeaderBoard");
+			}
+
 			// ログアウトボタンが押されたら
-			if( logOutButton )
+			if( logOutButton ) {
 				FindObjectOfType<UserAuth> ().logOut ();
+			}
 			
 			// 画面タップでゲームスタート
-			if ( Event.current.type == EventType.MouseDown) 
+			if ( Event.current.type == EventType.MouseDown) {
 				GameStart ();
+			}
 		}
 		
 		// ログアウト完了してたらログインメニューに戻る
-		if( FindObjectOfType<UserAuth>().currentPlayer() == null )
-			Application.LoadLevel("Login");   
+		if (FindObjectOfType<UserAuth> ().currentPlayer () == null) {
+			Application.LoadLevel ("Login");
+		}
 	}
 	
 	void GameStart ()

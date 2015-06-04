@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/LogIn.unity
   - enabled: 1
     path: Assets/Scenes/Stage.unity
+  - enabled: 1
+    path: Assets/Scenes/LeaderBoard.unity
