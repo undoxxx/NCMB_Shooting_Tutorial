@@ -23,7 +23,12 @@ public class Manager : MonoBehaviour
 	{
 		if( !IsPlaying() ){
 			drawButton();
-			
+
+			// コメントボタンが押されたら
+			if ( commentButton ){
+				Application.LoadLevel("Comment");
+			}
+
 			// ランキングボタンが押されたら
 			if( leaderBoardButton ) {
 				Application.LoadLevel("LeaderBoard");
@@ -53,8 +58,11 @@ public class Manager : MonoBehaviour
 		Instantiate (player, player.transform.position, player.transform.rotation);
 	}
 	
-	public void GameOver ()
-	{
+	public void GameOver() {
+		
+		PlayerPrefs.SetInt ("lastWave", FindObjectOfType<Emitter>().currentWave );
+		PlayerPrefs.Save ();
+		
 		FindObjectOfType<Score> ().Save ();
 		// ゲームオーバー時に、タイトルを表示する
 		title.SetActive (true);

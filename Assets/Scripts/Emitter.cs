@@ -7,7 +7,7 @@ public class Emitter : MonoBehaviour
 	public GameObject[] waves;
 	
 	// 現在のWave
-	private int currentWave;
+	public int currentWave { get; private set; }
 	
 	// Managerコンポーネント
 	private Manager manager;
